@@ -7,7 +7,7 @@ export default defineConfig({
     port: 3000,
     hmr: false,
     proxy: {
-      '/api': 'http://localhost:5000'
+      '/api': 'https://student-life-hub-9qxv.onrender.com'
     }
   }
 });

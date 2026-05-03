@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: '/api',
+  baseURL: 'https://student-life-hub-9qxv.onrender.com',
   headers: {
     'Content-Type': 'application/json'
   }
