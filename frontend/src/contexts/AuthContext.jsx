@@ -33,8 +33,9 @@ export function AuthProvider({ children }) {
       window.localStorage.setItem('studentLifeUser', JSON.stringify({ user: loggedInUser, token: authToken }));
       return true;
     } catch (error) {
-      console.error('Login failed:', error?.response?.data || error.message);
-      return false;
+      const message = error?.response?.data?.error || error?.response?.data || error.message || 'Login failed';
+      console.error('Login failed:', message);
+      return message;
     }
   };
 
@@ -47,8 +48,9 @@ export function AuthProvider({ children }) {
       window.localStorage.setItem('studentLifeUser', JSON.stringify({ user: newUser, token: authToken }));
       return true;
     } catch (error) {
-      console.error('Registration failed:', error?.response?.data || error.message);
-      return false;
+      const message = error?.response?.data?.error || error?.response?.data || error.message || 'Registration failed';
+      console.error('Registration failed:', message);
+      return message;
     }
   };
 

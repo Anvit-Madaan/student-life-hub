@@ -27,23 +27,23 @@ export default function Login() {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    const success = await login(loginForm);
-    if (success) {
+    const result = await login(loginForm);
+    if (result === true) {
       setMessage('Welcome back! Redirecting to your dashboard...');
       setTimeout(() => navigate('/dashboard'), 600);
     } else {
-      setMessage('Login failed. Check your credentials.');
+      setMessage(typeof result === 'string' ? result : 'Login failed. Check your credentials.');
     }
   };
 
   const handleRegister = async (event) => {
     event.preventDefault();
-    const success = await register(registerForm);
-    if (success) {
+    const result = await register(registerForm);
+    if (result === true) {
       setMessage('Account created! Redirecting to dashboard...');
       setTimeout(() => navigate('/dashboard'), 600);
     } else {
-      setMessage('Registration failed. Try again.');
+      setMessage(typeof result === 'string' ? result : 'Registration failed. Try again.');
     }
   };
 
